@@ -1,0 +1,10 @@
+org\dnyanyog\dto\AddAppointmentRequest.class
+org\dnyanyog\entity\Appointment.class
+org\dnyanyog\dto\AddAppointmentResponse.class
+org\dnyanyog\aop\JPAPrePostProcessing.class
+org\dnyanyog\controller\AppointmentController.class
+org\dnyanyog\service\AppointmentServiceImpl.class
+org\dnyanyog\AppointmentServiceMain.class
+org\dnyanyog\common\ResponseCode.class
+org\dnyanyog\repository\AppointmentRepository.class
+org\dnyanyog\service\AppointmentService.class

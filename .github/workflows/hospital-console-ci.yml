@@ -1,0 +1,50 @@
+name: CI/CD Workflow For Hospital-Console
+
+on:
+  push:
+    paths:
+      - Hospital-Management/hospital-console-fxml/**
+      
+jobs:
+  pre-commit-scans:
+    runs-on: ubuntu-latest
+    
+    steps:
+    
+    - name: Setup java
+      uses: actions/setup-java@v4
+      with:
+         distribution: 'temurin' 
+         java-version: '21'
+        
+    - name: Checkout code
+      uses: actions/checkout@v4
+  
+    - name: GitLeaks Scan
+      run: |
+        docker pull devopsdynamo17/gitleaks
+        docker run -v "$(pwd):/path" devopsdynamo17/gitleaks
+
+    - name: Perform Google Formatter Check
+      run: |
+        cd Hospital-Management/hospital-console-fxml
+        mvn com.spotify.fmt:fmt-maven-plugin:check
+
+    - name: OSS scan
+      run: |
+        cd Hospital-Management/hospital-console-fxml
+        mvn ossindex:audit
+      continue-on-error: true
+
+    - name: OWASP scan
+      if: false 
+      run: |
+        cd Hospital-Management/hospital-console-fxml
+        mvn org.owasp:dependency-check-maven:check
+
+    - name: License finder
+      run: |
+        cd Hospital-Management/hospital-console-fxml
+        docker pull devopsdynamo17/license-finder
+        docker run -v "$(pwd):/scan" devopsdynamo17/license-finder
+      continue-on-error: true

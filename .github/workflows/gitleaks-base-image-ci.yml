@@ -1,0 +1,25 @@
+name: CI/CD Workflow gitleaks Base Image  
+
+on:
+  push:
+    paths:
+      - dev-sec-ops/base-images/**
+jobs: 
+  build-base-image-gitleaks:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout Code
+      uses: actions/checkout@v4
+
+    - name: Build Image gitleaks
+      run: docker build -t ${{vars.DOCKER_REGISTRY_USER}}/gitleaks:latest -f dev-sec-ops/base-images/gitleaks .
+
+    - name: Login to Github Docker registery
+      uses: docker/login-action@v2
+      with:
+        username: ${{vars.DOCKER_REGISTRY_USER}} 
+        password: ${{secrets.DOCKER_REGISTRY_PAT}}
+
+    - name: Push Docker Image
+      run: docker push ${{vars.DOCKER_REGISTRY_USER}}/gitleaks:latest 

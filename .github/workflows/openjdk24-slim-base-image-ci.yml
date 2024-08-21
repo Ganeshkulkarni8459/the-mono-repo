@@ -1,0 +1,25 @@
+name: CI/CD Workflow for openjdk24-slim Base Image  
+
+on:
+  push:
+    paths:
+      - dev-sec-ops/base-images/**
+jobs: 
+   build-base-image-openjdk24-slim:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout Code
+      uses: actions/checkout@v4
+
+    - name: Build Image open-jdk-24-slim
+      run: docker build -t ${{vars.DOCKER_REGISTRY_USER}}/open-jdk-24-slim:latest -f dev-sec-ops/base-images/open-jdk-24-slim .
+
+    - name: Login to Github Docker registery
+      uses: docker/login-action@v2
+      with:
+        username: ${{vars.DOCKER_REGISTRY_USER}} 
+        password: ${{secrets.DOCKER_REGISTRY_PAT}}
+
+    - name: Push Docker Image
+      run: docker push ${{vars.DOCKER_REGISTRY_USER}}/open-jdk-24-slim:latest 

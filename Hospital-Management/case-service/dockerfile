@@ -1,0 +1,7 @@
+FROM devopsdynamo17/open-jdk-24-slim
+
+WORKDIR /app
+
+COPY target/case-service-0.0.1-SNAPSHOT.jar case-service.jar
+
+CMD ["java", "-jar", "case-service.jar"]
