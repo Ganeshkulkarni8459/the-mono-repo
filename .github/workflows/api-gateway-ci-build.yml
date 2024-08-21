@@ -40,7 +40,7 @@ jobs:
       if: false 
       run: |
         cd Hospital-Management/api-gateway
-        mvn org.owasp:dependency-check-maven:check
+        mvn org.owasp:dependency-check-maven:format
 
     - name: License finder
       run: |
