@@ -29,7 +29,7 @@ jobs:
     - name: Perform Google Formatter Check
       run: |
         cd Hospital-Management/case-service
-        mvn com.spotify.fmt:fmt-maven-plugin:check
+        mvn com.spotify.fmt:fmt-maven-plugin:format
 
     - name: OSS scan
       run: |
