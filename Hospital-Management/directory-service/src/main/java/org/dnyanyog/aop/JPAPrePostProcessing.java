@@ -9,7 +9,6 @@ import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
 import org.springframework.stereotype.Component;
 
-
 @Component
 @Aspect
 public class JPAPrePostProcessing {
@@ -35,3 +34,5 @@ public class JPAPrePostProcessing {
     // System.out.println("Saving object: " + joinPoint.getArgs()[0]);
   }
 }
+
+

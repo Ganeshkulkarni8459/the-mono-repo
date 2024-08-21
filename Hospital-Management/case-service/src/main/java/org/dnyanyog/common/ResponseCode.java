@@ -1,7 +1,5 @@
 package org.dnyanyog.common;
 
-
-
 public enum ResponseCode {
   ADD_CASE_SUCCESS("Success", "Case Add Sucessfully"),
   SEARCH_CASE_SUCCESS("Success", "Case found Sucessfully "),
@@ -27,3 +25,4 @@ public enum ResponseCode {
     return message;
   }
 }
+
