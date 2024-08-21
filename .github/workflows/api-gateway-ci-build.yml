@@ -49,6 +49,9 @@ jobs:
         docker run -v "$(pwd):/scan" devopsdynamo17/license-finder
       continue-on-error: true
 
+    - name: Delete target directory
+      run: rm -rf Hospital-Management/api-gateway/target
+        
     - name: Build code and create docker images
       run: |
         cd Hospital-Management/api-gateway
