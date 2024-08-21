@@ -128,7 +128,7 @@
                         <image>
                             <name>${image.registry}/${project.artifactId}:${image.tag}</name>
                             <build>
-                                <dockerFile>${project.basedir}/Dockerfile</dockerFile> <!-- Ensure the 'D' in 'Dockerfile' is capitalized -->
+                                <dockerFile>${project.basedir}/dockerfile</dockerFile> <!-- Ensure the 'D' in 'Dockerfile' is capitalized -->
                                 <args>
                                     <imageName>${project.artifactId}-latest</imageName>
                                 </args>
