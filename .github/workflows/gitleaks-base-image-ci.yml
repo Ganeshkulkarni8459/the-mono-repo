@@ -1,5 +1,6 @@
 name: CI/CD Workflow gitleaks Base Image  
 
+
 on:
   push:
     paths:

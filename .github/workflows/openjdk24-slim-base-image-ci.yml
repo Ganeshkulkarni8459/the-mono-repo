@@ -1,5 +1,6 @@
 name: CI/CD Workflow for openjdk24-slim Base Image  
 
+
 on:
   push:
     paths:
