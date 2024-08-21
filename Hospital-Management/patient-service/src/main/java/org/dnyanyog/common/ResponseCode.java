@@ -1,5 +1,6 @@
 package org.dnyanyog.common;
 
+
 public enum ResponseCode {
   ADD_PATIENT_SUCCESS("Success", "Patient Add Sucessfully"),
   ADD_PATIENT_FAIL("Fail", "Mobile Number Is Already present"),

@@ -1,5 +1,6 @@
 package org.dnyanyog.common;
 
+
 public enum ResponseCode {
   ADD_APPOINTMENT_SUCCESS("Success", "Appointment Add Sucessfully"),
   SEARCH_APPOINTMENT_SUCCESS("Success", "Appointment found Sucessfully "),
