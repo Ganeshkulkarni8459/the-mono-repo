@@ -2,7 +2,6 @@ package org.dnyanyog.aop;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
-
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.After;
 import org.aspectj.lang.annotation.Aspect;
@@ -34,5 +33,3 @@ public class JPAPrePostProcessing {
     // System.out.println("Saving object: " + joinPoint.getArgs()[0]);
   }
 }
-
-

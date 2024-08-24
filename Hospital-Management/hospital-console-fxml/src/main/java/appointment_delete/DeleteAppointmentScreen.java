@@ -1,12 +1,10 @@
 package appointment_delete;
 
-import java.net.URL;
-
 import common.StageFactory;
+import java.net.URL;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-
 
 public class DeleteAppointmentScreen {
   public static void showDeleteAppointmentScreen() throws Exception {

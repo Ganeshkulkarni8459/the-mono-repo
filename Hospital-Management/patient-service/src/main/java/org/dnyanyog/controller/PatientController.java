@@ -1,5 +1,6 @@
 package org.dnyanyog.controller;
 
+import jakarta.validation.Valid;
 import org.dnyanyog.dto.AddPatientRequest;
 import org.dnyanyog.dto.AddPatientResponse;
 import org.dnyanyog.service.PatientService;
@@ -10,8 +11,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
-
-import jakarta.validation.Valid;
 
 @RestController
 public class PatientController {
@@ -53,4 +52,3 @@ public class PatientController {
     return service.deletePatient(patientId);
   }
 }
-
