@@ -30,7 +30,7 @@ git_pull:
 git_stash:
 	@echo "Stashing changes for all projects"
 	@for project in $(SERVICES) $(LIB_PROJECT); do \
-		echo "Stashing $$project..."; \
+		echo "Stashing $$project"; \
 		(cd $$project && git stash); \
 	done
 
@@ -46,21 +46,21 @@ build_services:
 	done
 
 build_images:
-	@echo "Building Docker images for all services..."
+	@echo "Building Docker images for all services"
 	@for service in $(SERVICES); do \
-		echo "Building Docker image for $$service..."; \
+		echo "Building Docker image for $$service"; \
 		service_name=$$(basename $$service); \
 		(cd $$service && docker build -t $(DOCKER_REGISTRY_USER)/$$service_name:latest .); \
 	done
 
 docker_login:
-	@echo "Logging in to Docker Hub..."
+	@echo "Logging in to Docker Hub"
 	@echo $(DOCKER_REGISTRY_PAT) | docker login -u $(DOCKER_REGISTRY_USER) --password-stdin
 
 push_images: docker_login
-	@echo "Pushing Docker images to Docker Hub..."
+	@echo "Pushing Docker images to Docker Hub"
 	@for service in $(SERVICES); do \
 		service_name=$$(basename $$service); \
-		echo "Pushing Docker image for $$service_name..."; \
+		echo "Pushing Docker image for $$service_name"; \
 		docker push $(DOCKER_REGISTRY_USER)/$$service_name; \
 	done
